@@ -24,9 +24,13 @@ public class ChatMessageController {
     messagingTemplate.convertAndSendToUser(
       savedMessage.getRecipientId(),
       "/queue/messages",
-      null
+      ChatNotification.builder()
+        .id(savedMessage.getId())
+        .senderId(savedMessage.getSenderId())
+        .recipientId(savedMessage.getRecipientId())
+        .content(savedMessage.getContent())
+        .build()
     );
-
   }
 
   @GetMapping("/messages/{senderId}/{recipientId}")
