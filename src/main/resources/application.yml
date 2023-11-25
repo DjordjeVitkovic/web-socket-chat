@@ -1,11 +1,10 @@
 spring:
   data:
     mongodb:
-      username: chat
-      password: chat
-      host: localhost
-      port: 27017
-      database: chat
-      authentication-database: admin
+      auto-index-creation: true
+      uri: mongodb://chat:chat@localhost:27017/chat?authSource=admin
 server:
   port: 8088
+
+mongodb:
+  database: ${MONGODB_NAME:chat}

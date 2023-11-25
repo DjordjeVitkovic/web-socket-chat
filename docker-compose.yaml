@@ -9,9 +9,12 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=chat
       - MONGO_INITDB_ROOT_PASSWORD=chat
+      - MONGO_USERNAME=chat
+      - MONGO_PASSWORD=chat
+      - MONGO_DB=chat
   mongo-express:
     image: mongo-express
-    container_name: mongo-express
+    container_name: mongo_express
     restart: always
     ports:
       - 8081:8081
